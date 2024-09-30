@@ -1,0 +1,22 @@
+
+.parking-spots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 8px;
+}
+
+.available {
+  background-color: green;
+  color: white;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.unavailable {
+  background-color: red;
+  color: white;
+  padding: 8px;
+  border-radius: px;
+  cursor: default;
+}

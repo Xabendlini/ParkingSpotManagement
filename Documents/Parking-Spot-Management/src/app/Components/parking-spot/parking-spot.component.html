@@ -1,0 +1,8 @@
+<div class="parking-spots">
+    <div *ngFor="let spot of parkingSpots">
+      <div 
+           [ngClass]="{ 'available': spot.available, 'unavailable': !spot.available }">
+        <span>{{ spot.id }}</span>
+      </div>
+    </div>
+  </div>
