@@ -1,7 +1,8 @@
 <h1>{{ title }}</h1>  
 <div class="container">
   <div class="user-section">
-    <app-user-detail [parkingSpots]="parkingService.parkingSpots"></app-user-detail>
+    <app-user-detail [parkingSpots]="parkingService.parkingSpots"  ></app-user-detail>
+    
   </div>
   <div class="parking-section">
     <app-parking-spot [parkingSpots]="parkingService.parkingSpots"></app-parking-spot>

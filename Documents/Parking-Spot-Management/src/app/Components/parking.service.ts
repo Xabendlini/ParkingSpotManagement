@@ -9,9 +9,8 @@ export class ParkingService {
   private parkingSpotsSubject = new BehaviorSubject<Parking[]>([]);
   parkingSpots$: Observable<Parking[]> = this.parkingSpotsSubject.asObservable();
   parkingSpots: Parking[] = [];
-  private storageKey = 'parkingSpots'; 
+
   constructor() {
-    this.loadParkingSpotsFromStorage(); 
     this.initializeParkingSpots(); 
   }
 
@@ -24,20 +23,7 @@ export class ParkingService {
       }
       this.parkingSpotsSubject.next(parkingSpots);
       this.parkingSpots = parkingSpots; 
-      this.saveParkingSpotsToStorage();
     }
-  }
-
-  loadParkingSpotsFromStorage() {
-    const storedParkingSpots = localStorage.getItem(this.storageKey);
-    if (storedParkingSpots) {
-      this.parkingSpots = JSON.parse(storedParkingSpots);
-      this.parkingSpotsSubject.next(this.parkingSpots); 
-    }
-  }
-
-  saveParkingSpotsToStorage() {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.parkingSpots));
   }
 
   updateParkingSpotAvailability(parkingId: string, available: boolean) {
@@ -46,7 +32,6 @@ export class ParkingService {
     if (spotIndex !== -1) {
       updatedParkingSpots[spotIndex].available = available;
       this.parkingSpotsSubject.next(updatedParkingSpots);
-      this.saveParkingSpotsToStorage();
     }
   }
 }

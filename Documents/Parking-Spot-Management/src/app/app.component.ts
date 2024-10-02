@@ -9,7 +9,7 @@ import { ParkingService } from './Components/parking.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,  ParkingSpotComponent],
+  imports: [RouterOutlet, ParkingSpotComponent, UserDetailComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
